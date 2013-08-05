@@ -7,20 +7,38 @@ use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
 use Pod::Usage;
 use MySQL::GrantPrivileges;
 
+my %opts;
+
 GetOptions(
-    \my %opts,
+    \%opts,
     'user|u=s',
-    'password|p=s',
     'host|h=s',
     'port|P=i',
     'help',
+    'password|p:s' => sub {
+        my ( $k, $v ) = @_;
+        if ($v) {
+            $opts{password} = $v;
+        }
+        else {
+            require Term::ReadPassword;
+            Term::ReadPassword->import('read_password');
+
+            my $prompt = 'Enter password: ';
+            while (1) {
+                if ( defined( my $password = read_password($prompt) ) ) {
+                    $opts{password} = $password;
+                    last;
+                }
+            }
+        }
+    },
 ) or pod2usage(1);
 
 pod2usage(0) if $opts{help};
 
 my $priv = MySQL::GrantPrivileges->new(%opts);
 print $priv->to_string, "\n";
-
 
 __END__
 
@@ -39,7 +57,8 @@ grant-privileges.pl [--user USER] [--password PASSWORD] [--host HOST]
         Usename to connect mysqld. default value is 'root'.
 
     --password | -p
-        Password to connect mysqld. default value is ''.
+        Password to connect mysqld. default value is ''. If you don't pass a
+        argument, this option shows password prompt.
 
     --host | -h
         Hostname to connect mysqld. default value is '127.0.0.1'.

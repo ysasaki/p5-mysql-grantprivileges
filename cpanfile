@@ -1,8 +1,9 @@
 requires 'perl', '5.008001';
 
-requires 'Moo',        '1.003000';
-requires 'DBI',        '1.628';
-requires 'DBD::mysql', '4.023';
+requires 'Moo',                '1.003000';
+requires 'DBI',                '1.628';
+requires 'DBD::mysql',         '4.023';
+requires 'Term::ReadPassword', '0.11';
 
 on 'test' => sub {
     requires 'Test::More',     '0.98';

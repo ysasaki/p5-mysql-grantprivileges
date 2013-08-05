@@ -1,7 +1,8 @@
 Revision history for Perl extension MySQL-GrantPrivileges
 
 {{$NEXT}}
-    - Fixes issue that parsing short options.
+    - Fixes a issue that parsing short options.
+    - Adds a feature that shows password prompt.
 
 0.01 2013-08-05T03:01:59Z
 
