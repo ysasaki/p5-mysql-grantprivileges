@@ -3,7 +3,7 @@
 use utf8;
 use strict;
 use warnings;
-use Getopt::Long;
+use Getopt::Long qw(:config posix_default no_ignore_case gnu_compat);
 use Pod::Usage;
 use MySQL::GrantPrivileges;
 
