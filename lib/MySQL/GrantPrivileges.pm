@@ -4,7 +4,7 @@ use 5.008005;
 use Moo;
 use DBI;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 has 'user' => (
     is      => 'ro',
