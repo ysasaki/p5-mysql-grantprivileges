@@ -58,6 +58,17 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/ysasaki/p5-mysql-grantprivileges/issues"
+      },
+      "homepage" : "https://github.com/ysasaki/p5-mysql-grantprivileges",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/ysasaki/p5-mysql-grantprivileges.git",
+         "web" : "https://github.com/ysasaki/p5-mysql-grantprivileges"
+      }
+   },
    "version" : "0.01",
    "x_contributors" : [
       "ysasaki <aloelight@gmail.com>"
